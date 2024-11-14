@@ -52,17 +52,17 @@ public class GenomeCompressor {
      */
     public static void expand() {
         // Map for constant time expansion of each compressed letter
-        char[] alphabetReference = new char[256];
-        alphabetReference[0] = 'A';
-        alphabetReference[1] = 'C';
-        alphabetReference[2] = 'T';
-        alphabetReference[3] = 'G';
+        char[] expansionReference = new char[256];
+        expansionReference[0] = 'A';
+        expansionReference[1] = 'C';
+        expansionReference[2] = 'T';
+        expansionReference[3] = 'G';
 
         // Read the length of the sequence from the first 32 bits
         int sequenceLength = BinaryStdIn.readInt();
         // Loop through the rest of the file, expanding each int into its corresponding letter
         for(int i = 0; i < sequenceLength; i++){
-            BinaryStdOut.write(alphabetReference[BinaryStdIn.readInt(2)]);
+            BinaryStdOut.write(expansionReference[BinaryStdIn.readInt(2)]);
         }
         BinaryStdOut.close();
     }
