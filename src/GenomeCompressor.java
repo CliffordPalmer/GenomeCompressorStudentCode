@@ -25,11 +25,11 @@ public class GenomeCompressor {
      */
     public static void compress() {
         // Map for constant time compression of each letter
-        int[] alphabetReference = new int[256];
-        alphabetReference['A'] = 0;
-        alphabetReference['C'] = 1;
-        alphabetReference['T'] = 2;
-        alphabetReference['G'] = 3;
+        int[] compressionReference = new int[256];
+        compressionReference['A'] = 0;
+        compressionReference['C'] = 1;
+        compressionReference['T'] = 2;
+        compressionReference['G'] = 3;
 
         // Read in the DNA sequence
         String sequence = BinaryStdIn.readString();
@@ -41,7 +41,7 @@ public class GenomeCompressor {
 
         // Loop through the sequence assigning each letter to its equivalent integer value
         for(int i = 0; i < sequence.length(); i++){
-            BinaryStdOut.write(Character.toUpperCase(alphabetReference[sequence.charAt(i)]), 2);
+            BinaryStdOut.write(Character.toUpperCase(compressionReference[sequence.charAt(i)]), 2);
         }
 
         BinaryStdOut.close();
