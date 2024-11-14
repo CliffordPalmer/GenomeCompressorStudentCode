@@ -23,9 +23,11 @@ public class GenomeCompressor {
      * Reads a sequence of 8-bit extended ASCII characters over the alphabet
      * { A, C, T, G } from standard input; compresses and writes the results to standard output.
      */
+
     public static void compress() {
         // Map for constant time compression of each letter
-        int[] compressionReference = new int[256];
+        int[] compressionReference = new int['T' + 1];
+        // Bit representations: A -> 00, C -> 01, T -> 10, G -> 11
         compressionReference['A'] = 0;
         compressionReference['C'] = 1;
         compressionReference['T'] = 2;
@@ -52,7 +54,8 @@ public class GenomeCompressor {
      */
     public static void expand() {
         // Map for constant time expansion of each compressed letter
-        char[] expansionReference = new char[256];
+        char[] expansionReference = new char[4];
+        // Bit representations: A -> 00, C -> 01, T -> 10, G -> 11
         expansionReference[0] = 'A';
         expansionReference[1] = 'C';
         expansionReference[2] = 'T';
